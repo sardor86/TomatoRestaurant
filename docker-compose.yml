@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  db:
+    container_name: db
+    image: onjin/alpine-postgres:9.5
+    environment:
+      POSTGRES_DB: "django_db"
+      POSTGRES_USER: "django"
+      POSTGRES_PASSWORD: "something"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"

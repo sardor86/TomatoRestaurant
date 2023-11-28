@@ -1,0 +1,8 @@
+postgres_data/
+.idea/
+__pycahce__/
+venv/
+TomatoRestaurant/__pycache__/
+.env.dist
+.gitignore
+.git/
