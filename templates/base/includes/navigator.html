@@ -9,31 +9,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="./index.html">
+            <a class="navbar-brand" href="{% url 'index' %}">
                 <img src="{% static 'img/nav-logo.png' %}" alt="nav-logo">
             </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="./index.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="./index.html">Home - Image</a></li>
-                        <li><a href="./index_slider.html">Home - Header Slider</a></li>
-                        <li><a href="./index_video.html">Home - Video Background</a></li>
-                        <li><a href="./index_parallax.html">Home - Parallax</a></li>
-                        <li><a href="./index_animation.html">Home - Scroll Animation</a></li>
-                    </ul>
+                    <a href="{% url 'index' %}" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
                 </li>
                 <li class="dropdown">
-                    <a href="./menu_all.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="./menu_list.html">Menu - List</a></li>
-                        <li><a href="./menu_overlay.html">Menu - Overlay</a></li>
-                        <li><a href="./menu_tile.html">Menu - Tile</a></li>
-                        <li><a href="./menu_grid.html">Menu - Grid</a></li>
-                        <li><a href="./menu_all.html">Menu All</a></li>
-                    </ul>
+                    <a href="{% url 'menu' %}" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Menu</a>
                 </li>
                 <li class="dropdown">
                     <a href="./reservation.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reservation<span class="caret"></span></a>
