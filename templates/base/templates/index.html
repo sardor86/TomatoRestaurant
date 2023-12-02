@@ -132,72 +132,7 @@
     </div>
 </section>
 <!-- Reservations page-->
-<section class="reservation">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="page-header wow fadeInDown">
-                    <h1>Reservations<small>Book a table online. Leads will reach in your email.</small></h1>
-                </div>
-            </div>
-        </div>
-        <div class="reservation-form wow fadeInUp">
-            <div class="row">
-                <div class="col-md-4 col-sm-6">
-                    <div class="form-group">
-                        <label>Date</label>
-                        <input type="text" class="form-control" id="datepicker" placeholder="Pick a date">
-                        <i class="fa fa-calendar-o"></i>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="form-group">
-                        <label>Your Name</label>
-                        <input type="text" class="form-control" placeholder="Full Name">
-                        <i class="fa fa-pencil-square-o"></i>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="form-group">
-                        <label>Time</label>
-                        <input type="text" class="form-control" id="timepicker" placeholder="Pick a time">
-                        <i class="fa fa-clock-o"></i>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" class="form-control" placeholder="Your Email ID">
-                        <i class="fa fa-envelope-o"></i>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="form-group">
-                        <label>Guests</label>
-                        <input class="form-control" type="number" placeholder="How many of you?">
-                        <i class="fa fa-user"></i>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="form-group">
-                        <label>Phone Number</label>
-                        <input type="text" class="form-control" placeholder="Enter your Phone Number">
-                        <i class="fa fa-phone"></i>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-12">
-                    <div class="reservation-btn">
-                        <a class="btn btn-default btn-lg" role="button">Make Reservation</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="reservation-footer">
-            <p>You can also call: <strong>+1 224 6787 004</strong> to make a reservation.</p>
-            <span></span>
-        </div>
-    </div>
-</section>
+{% include 'base/includes/reservation.html' %}
 <!-- Our features-->
 <section class="features">
     <div class="container">

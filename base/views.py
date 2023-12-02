@@ -12,5 +12,18 @@ def main_page(request: WSGIRequest):
 def menu_page(request: WSGIRequest):
     return render(
         request,
-        'base/templates/menu.html'
+        'base/templates/menu.html',
+        context={
+            'title': 'menu'
+        }
+    )
+
+
+def reservation_page(request: WSGIRequest):
+    return render(
+        request,
+        'base/templates/reservation.html',
+        context={
+            'title': 'reservation'
+        }
     )
