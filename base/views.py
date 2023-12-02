@@ -27,3 +27,13 @@ def reservation_page(request: WSGIRequest):
             'title': 'reservation'
         }
     )
+
+
+def about_page(request: WSGIRequest):
+    return render(
+        request,
+        'base/templates/about.html',
+        context={
+            'title': 'about'
+        }
+    )
