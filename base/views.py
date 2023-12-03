@@ -37,3 +37,13 @@ def about_page(request: WSGIRequest):
             'title': 'about'
         }
     )
+
+
+def gallery_page(request: WSGIRequest):
+    return render(
+        request,
+        'base/templates/gallery.html',
+        context={
+            'title': 'gallery'
+        }
+    )
