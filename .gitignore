@@ -144,3 +144,4 @@ media/
 *.db
 todo.p
 postgres_data/
+uploads

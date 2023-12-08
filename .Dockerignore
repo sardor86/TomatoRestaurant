@@ -6,3 +6,4 @@ TomatoRestaurant/__pycache__/
 .env.dist
 .gitignore
 .git/
+uploads/
