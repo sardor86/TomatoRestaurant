@@ -1,5 +1,11 @@
 from django.contrib import admin
-from base.models import MenuModel, ReservationModel, TeamsModel, GalleryModel
+from base.models import MenuGroupModel, MenuModel, ReservationModel, TeamsModel, GalleryModel
+
+
+@admin.register(MenuGroupModel)
+class MenuGroupAdmin(admin.ModelAdmin):
+    list_display = ['name']
+    search_fields = ['name']
 
 
 @admin.register(MenuModel)

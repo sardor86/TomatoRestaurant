@@ -1,21 +1,33 @@
 from django.shortcuts import render
 from django.core.handlers.wsgi import WSGIRequest
 
+from base.models import MenuModel, MenuGroupModel
+
 
 def main_page(request: WSGIRequest):
+    contex: dict = {
+        'menu': MenuModel.objects.all(),
+        'groups': MenuGroupModel.objects.all()
+    }
+
     return render(
         request,
-        'base/templates/index.html'
+        'base/templates/index.html',
+        contex
     )
 
 
 def menu_page(request: WSGIRequest):
+    contex: dict = {
+        'title': 'menu',
+        'menu': MenuModel.objects.all(),
+        'groups': MenuGroupModel.objects.all()
+    }
+
     return render(
         request,
         'base/templates/menu.html',
-        context={
-            'title': 'menu'
-        }
+        contex
     )
 
 
