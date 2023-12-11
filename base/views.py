@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.core.handlers.wsgi import WSGIRequest
 
-from base.models import MenuModel, MenuGroupModel
+from base.models import MenuModel, MenuGroupModel, TeamsModel, GalleryModel
 
 
 def main_page(request: WSGIRequest):
@@ -42,20 +42,25 @@ def reservation_page(request: WSGIRequest):
 
 
 def about_page(request: WSGIRequest):
+    contex: dict = {
+        'title': 'about',
+        'group': TeamsModel.objects.all()
+    }
+
     return render(
         request,
         'base/templates/about.html',
-        context={
-            'title': 'about'
-        }
+        contex
     )
 
 
 def gallery_page(request: WSGIRequest):
+    contex: dict = {
+        'title': 'gallery',
+        'gallery': GalleryModel.objects.all()
+    }
     return render(
         request,
         'base/templates/gallery.html',
-        context={
-            'title': 'gallery'
-        }
+        contex
     )
