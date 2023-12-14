@@ -7,3 +7,7 @@ TomatoRestaurant/__pycache__/
 .gitignore
 .git/
 uploads/
+user/__pycache__/
+user/migrations/__pycache__/
+base/__pycache__/
+base/migrations/__pycache__/
