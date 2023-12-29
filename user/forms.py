@@ -1,5 +1,4 @@
 from django import forms
-from django.contrib.auth.models import User
 from user.models import UserModel
 
 import os
@@ -43,7 +42,7 @@ class UserLoginForm(forms.Form):
 
     def check(self):
         data = self.cleaned_data
-        if len(data['password1']) < 8:
+        if len(data['password']) < 8:
             return 'password length is too short'
 
         user = UserModel.objects.filter(email=data['email']).first()
@@ -55,7 +54,7 @@ class UserLoginForm(forms.Form):
                                             user.salt,
                                             100000)
 
-        if password_hash != data['password']:
+        if password_hash != bytes(user.password):
             return 'password is incorrect'
 
         return True

@@ -16,13 +16,13 @@
                         <div class="box-content">
                             <h3 class="text-center">Existing Customer</h3>
                             <br>
-                            <form class="logregform" method="post">
+                            <form class="logregform" method="post" action="{% url 'login' %}">
                                 {% csrf_token %}
                                 <div class="row">
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <label>Username or E-mail Address</label>
-                                            <input type="text" value="" class="form-control">
+                                            <input type="text" value="" class="form-control" name="email">
                                         </div>
                                     </div>
                                 </div>
@@ -32,7 +32,7 @@
                                         <div class="col-md-12">
                                             <a class="pull-right" href="./index.html">(Lost Password?)</a>
                                             <label>Password</label>
-                                            <input type="password" value="" class="form-control">
+                                            <input type="password" value="" class="form-control" name="password">
                                         </div>
                                     </div>
                                 </div>
@@ -49,6 +49,9 @@
                                         <button type="submit" class="btn btn-default pull-right">Login</button>
                                     </div>
                                 </div>
+                                {% if login_error != None %}
+                                    <div class="alert alert-error"><span>ERROR:</span> {{ login_error }}</div>
+                                {% endif %}
                             </form>
                         </div>
                     </div>
@@ -86,7 +89,9 @@
                                         <button type="submit" class="btn btn-default pull-right" value="register">Register</button>
                                     </div>
                                 </div><br>
-                                <div class="alert alert-error"><span>ERROR:</span> {{ register_error }}</div>
+                                {% if register_error != None %}
+                                    <div class="alert alert-error"><span>ERROR:</span> {{ register_error }}</div>
+                                {% endif %}
                             </form>
                         </div>
                     </div>
