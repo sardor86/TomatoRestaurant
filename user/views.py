@@ -41,6 +41,8 @@ def user_register(request: WSGIRequest):
                     user.is_active = True
                     user.set_password(password)
                     user.save()
+                    return render(request,
+                                  'user/templates/success.html')
                 else:
                     contex['register_error'] = 'password is incorrect'
             else:
