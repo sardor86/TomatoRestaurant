@@ -21,8 +21,10 @@ class MenuGroupModel(models.Model):
 class MenuModel(models.Model):
     title = models.CharField('Name',
                              max_length=50)
-    description = models.TextField('name',
+    description = models.TextField('description',
                                    max_length=250)
+    full_description = models.TextField('full_description',
+                                        max_length=1200)
     price = models.PositiveIntegerField('price($)')
     image = models.ImageField('image', upload_to='menu_images')
     specials = models.BooleanField('today special')
