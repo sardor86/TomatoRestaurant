@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Images
+
+
+@admin.register(Images)
+class MenuAdmin(admin.ModelAdmin):
+    list_display = ['meal']
