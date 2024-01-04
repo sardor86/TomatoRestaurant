@@ -29,7 +29,7 @@ class Rating(models.Model):
     meal = models.ForeignKey(MenuModel, on_delete=models.CASCADE)
     rating = models.PositiveSmallIntegerField(default=5, validators=[MinValueValidator(1), MaxValueValidator(5)])
     comment = models.TextField(blank=True)
-    date_time = models.DateTimeField(auto_now_add=True)
+    date_time = models.DateField(auto_now_add=True)
 
     class Meta:
         db_table = 'rating'

@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 from base.models import MenuModel, MenuGroupModel
 from .forms import RatingForm
-from .models import Images
+from .models import Images, Rating
 
 from user.views import user_account
 
@@ -29,6 +29,7 @@ def shop_group_page(request: WSGIRequest, group_id: int):
 
 
 def meal_info_page(request: WSGIRequest, meal_id: int, error=None):
+    ratings = Rating.objects.filter(meal=meal_id).all()
     contex: dict = {
         'meal': MenuModel.objects.filter(id=meal_id).only('id',
                                                           'title',
@@ -37,6 +38,8 @@ def meal_info_page(request: WSGIRequest, meal_id: int, error=None):
                                                           'description',
                                                           'full_description').first(),
         'images': Images.objects.filter(meal=meal_id),
+        'overall_rating': sum([meal_rating.rating for meal_rating in ratings]) / len(ratings),
+        'ratings': ratings,
         'error': error
     }
 

@@ -42,11 +42,11 @@
                 <div class="shop-single-price">
                     <div class="ssp pull-left">{{ meal.price }}$</div>
                     <div class="rc-ratings pull-right">
-                        <span class="fa fa-star active"></span>
-                        <span class="fa fa-star active"></span>
-                        <span class="fa fa-star active"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
+                        {% with ''|center:overall_rating as range %}
+                            {% for _ in range %}
+                                <span class="fa fa-star active"></span>
+                            {% endfor %}
+                        {% endwith %}
                     </div>
                 </div>
                 <p>{{ meal.description }}</p>
@@ -83,51 +83,27 @@
                         <h4 class="text-left">3 Reviews for Food</h4>
                         <br>
                         <ul class="comment-list">
+                            {% for rating in ratings %}
                             <li>
                                 <a class="pull-left" href="./index.html"><img class="comment-avatar" src="img/xtra/1.jpg" alt="" height="50" width="50"></a>
                                 <div class="comment-meta">
-                                    <a href="./index.html">John Doe</a>
+                                    <a href="./index.html">{{ rating.user.username }}</a>
                                     <span>
-                            <em>Feb 17, 2015, at 11:34</em>
+                            <em>{{ rating.date_time|date:"SHORT_DATE_FORMAT" }}</em>
                             </span>
                                 </div>
                                 <div class="rating2">
-                                    <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                                    {% with ''|center:rating.rating as range %}
+                                    {% for _ in range %}
+                                        <span>&#9733;</span>
+                                    {% endfor %}
+                                    {% endwith %}
                                 </div>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor sit amet urna nec tempor. Nullam pellentesque in orci in luctus. Sed convallis tempor tellus a faucibus. Suspendisse et quam eu velit commodo tempus.
+                                    {{ rating.comment }}
                                 </p>
                             </li>
-                            <li>
-                                <a class="pull-left" href="./index.html"><img class="comment-avatar" src="img/xtra/2.jpg" alt="" height="50" width="50"></a>
-                                <div class="comment-meta">
-                                    <a href="./index.html">Rebecca</a>
-                                    <span>
-                            <em>March 08, 2015, at 03:34</em>
-                            </span>
-                                </div>
-                                <div class="rating2">
-                                    <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor sit amet urna nec tempor. Nullam pellentesque in orci in luctus. Sed convallis tempor tellus a faucibus. Suspendisse et quam eu velit commodo tempus.
-                                </p>
-                            </li>
-                            <li>
-                                <a class="pull-left" href="./index.html"><img class="comment-avatar" src="img/xtra/1.jpg" alt="" height="50" width="50"></a>
-                                <div class="comment-meta">
-                                    <a href="./index.html">Antony Doe</a>
-                                    <span>
-                            <em>June 11, 2015, at 07:34</em>
-                            </span>
-                                </div>
-                                <div class="rating2">
-                                    <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor sit amet urna nec tempor. Nullam pellentesque in orci in luctus. Sed convallis tempor tellus a faucibus. Suspendisse et quam eu velit commodo tempus.
-                                </p>
-                            </li>
+                            {% endfor %}
                         </ul>
                         <br>
                         <h4 class="text-left">Add a review</h4>
