@@ -31,21 +31,7 @@
                     <a href="{% url 'gallery' %}" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Gallery</a>
                 </li>
                 <li class="dropdown">
-                    <a href="./blog_right_sidebar.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="./blog_right_sidebar.html">Blog - Right Sidebar</a></li>
-                        <li><a href="./blog_left_sidebar.html">Blog - Left Sidebar</a></li>
-                        <li><a href="./blog_fullwidth.html">Blog - Fullwidth</a></li>
-                        <li><a href="./blog_masonry.html">Blog - Masonry</a></li>
-                        <li>
-                            <a href="./blog_single_image.html">Blog - Single <span class="caret-right"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="./blog_single_image.html">Blog - Image</a></li>
-                                <li><a href="./blog_single_slider.html">Blog - Gallery</a></li>
-                                <li><a href="./blog_single_video.html">Blog - Video</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <a href="{% url 'blog' %}" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
                 </li>
                 <li class="dropdown">
                     <a href="{% url 'shop' %}" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
