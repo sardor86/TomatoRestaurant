@@ -26,6 +26,7 @@ class BlogComment(models.Model):
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     comment = models.TextField(max_length=250)
+    date = models.DateField(auto_now_add=True)
 
     class Meta:
         db_table = 'blog_comment'

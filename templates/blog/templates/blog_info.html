@@ -17,61 +17,33 @@
                         </div>
                         <div class="post-format"><i class="fa fa-picture-o"></i></div>
                     </div>
-                    <h4><a href="./blog_single_image.html">{{ blog.title }}</a></h4>
+                    <h4>{{ blog.title }}</h4>
                     <hr>
                     <p>{{ blog.short_description }}</p>
                     <p>{{ blog.description }}</p>
                     <hr>
                     <div class="comments-area">
-                        <h3>3 Comments</h3>
                         <ul class="commentlist">
+                            {% for comment in comments %}
                             <li>
                                 <div class="comment">
                                     <span class="comment-image">
-                            <img alt="avatar image" src="img/xtra/1.jpg" class="avatar" height="70" width="70">
-                            </span>
+                                        <img alt="avatar image" src="img/xtra/1.jpg" class="avatar" height="70" width="70">
+                                    </span>
                                     <span class="comment-info d-text-c">
-                            <span>5 days ago &nbsp; / &nbsp; <a class="comment-reply-link d-text-c" href="./index.html">Reply</a></span> Jonny Doe
-                                    </span>
-                                    <p>If this generates a title of a book or short story already in existence, I assure you, it was completely random. If it generates a title you'd like to use, go right ahead a title of a book or short story already in existence, I assure you, it was completely random. .</p>
-                                </div>
-                                <ul class="children">
-                                    <li>
-                                        <div class="comment">
-                                            <span class="comment-image">
-                                    <img alt="avatar image" src="img/xtra/2.jpg" class="avatar" height="70" width="70">
-                                    </span>
-                                            <span class="comment-info d-text-c">
-                                    <span>3 days ago &nbsp; / &nbsp; <a class="comment-reply-link d-text-c" href="./index.html">Reply</a></span> Jana Doe
-                                            </span>
-                                            <p>Vel te tritani consequuntur. Pri oblique deterruisset ad, sed id recusabo elaboraret. Ex quo alii elit, vivendo referrentur pri ne. Ad eam integre ornatus volutpat, vel alia incorrupte liberavisse.</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <div class="comment">
-                                    <span class="comment-image">
-                            <img alt="avatar image" src="img/xtra/1.jpg" class="avatar" height="70" width="70">
-                            </span>
-                                    <span class="comment-info d-text-c">
-                            <span>1 day ago &nbsp; / &nbsp; <a class="comment-reply-link d-text-c" href="./index.html">Reply</a></span> Albert Doe
-                                    </span>
-                                    <p>Lorem ipsum dolor sit amet, pro sanctus ullamcorper ei, sonet commodo ad sed. Ne exerci dolorum sit. Mea evertitur signiferumque et. Doctus probatus intellegat nec ne. Vim an bonorum efficiantur, in assum primis euismod duo, tritani labitur has ei.</p>
+                                        <span>{{ comment.date|date:"SHORT_DATE_FORMAT" }}</span>{{ comment.user.username }}</span>
+                                    <p>{{ comment.comment }}</p>
                                 </div>
                             </li>
+                            {% endfor %}
                         </ul>
                         <div id="respond" class="comment-respond">
                             <h3>Leave a Comment</h3>
-                            <form method="post" id="commentform" class="comment-form">
+                            <form method="post" action="{% url 'blog_comment' blog_id=blog.id %}" id="commentform" class="comment-form">
+                                {% csrf_token %}
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input name="author" placeholder="Name" type="text">
-                                        <input name="email" placeholder="E-mail" type="text">
-                                        <input name="url" placeholder="Website" type="text">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <textarea placeholder="Comment"></textarea>
+                                        <textarea placeholder="Comment" name="comment"></textarea>
                                     </div>
                                     <div class="col-md-12">
                                         <button class="btn btn-default btn-block">Post Comment</button>

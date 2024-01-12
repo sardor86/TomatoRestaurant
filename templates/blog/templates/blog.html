@@ -17,15 +17,15 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-7 col-sm-7">
-                                        <h4><a href="./blog_single_image.html">Blog Heading Here</a></h4>
+                                        <h4><a href="{% url 'blog_info' blog_id=blog.id %}">Blog Heading Here</a></h4>
                                     </div>
                                     <div class="col-md-5 col-sm-5">
-                                        <div class="post-date">{{ blog.date|date:"SHORT_DATE_FORMAT" }}, 20 Comments</div>
+                                        <div class="post-date">{{ blog.date|date:"SHORT_DATE_FORMAT" }}</div>
                                     </div>
                                 </div>
                                 <hr>
                                 <p>{{ blog.short_description }}</p>
-                                <a href="./blog_single_image.html" class="btn btn-default">Read More</a>
+                                <a href="{% url 'blog_info' blog_id=blog.id %}" class="btn btn-default">Read More</a>
                             </article>
                             {% endfor %}
                         </div>
