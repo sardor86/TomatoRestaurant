@@ -3,6 +3,9 @@ from django.core.handlers.wsgi import WSGIRequest
 
 from base.models import MenuModel, MenuGroupModel, TeamsModel, GalleryModel
 
+from base.forms import MessageForm
+from user.views import user_account
+
 
 def main_page(request: WSGIRequest):
     contex: dict = {
@@ -76,3 +79,16 @@ def contact_page(request: WSGIRequest):
         'base/templates/contact.html',
         contex
     )
+
+
+def message(request: WSGIRequest):
+    if request.method == "POST":
+        if request.user.is_authenticated:
+            form = MessageForm(request.POST)
+            if form.is_valid():
+                print('something')
+                return render(request,
+                              'user/templates/success.html')
+        else:
+            return user_account(request)
+    return contact_page(request)

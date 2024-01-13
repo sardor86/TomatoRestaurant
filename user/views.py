@@ -41,6 +41,10 @@ def user_register(request: WSGIRequest):
                     user.is_active = True
                     user.set_password(password)
                     user.save()
+
+                    auth_user = authenticate(request, username=username, password=password)
+                    login(request, auth_user)
+
                     return render(request,
                                   'user/templates/success.html')
                 else:

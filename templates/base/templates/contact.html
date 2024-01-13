@@ -33,22 +33,16 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <form class="contact-form" id="contactForm" action="php/contact.php" method="post">
-                        <div class="form-group">
-                            <input class="form-control" name="name" id="name" placeholder="Full Name" type="text" required="required" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" type="email" name="email" id="email" placeholder="Email Address" required="required" />
-                        </div>
+                    <form class="contact-form" action="{% url 'message' %}" method="post">
+                        {% csrf_token %}
                         <div class="form-group">
                             <input class="form-control" placeholder="Subject" type="text" id="subject" name="subject">
                         </div>
                         <div class="form-group">
                             <textarea class="form-control" name="message" id="message" placeholder="Message" rows="5"></textarea>
                         </div>
-                        <button class="btn btn-default btn-lg btn-block" id="js-contact-btn">Send message</button>
+                        <button class="btn btn-default btn-lg btn-block" type="submit">Send message</button>
                     </form>
-                    <div id="js-contact-result" data-success-msg="Form submitted successfully." data-error-msg="Oops. Something went wrong."></div>
 
                 </div>
             </div>
@@ -79,11 +73,6 @@
 <script src="{% static 'js/vendor/jquery.stellar.js' %}"></script>
 <script src="{% static 'js/vendor/mc/jquery.ketchup.all.min.js' %}"></script>
 <script src="{% static 'js/vendor/mc/main.js' %}"></script>
-<script src="{% static 'https://maps.googleapis.com/maps/api/js?sensor=false' %}"></script>
-<script src="{% static 'js/vendor/map.js' %}"></script>
-
-<script src="{% static 'js/vendor/validate.js' %}"></script>
-<script src="{% static 'js/contact.js' %}"></script>
 
 <script src="{% static 'js/main.js' %}"></script>
 {% endblock %}
