@@ -38,10 +38,14 @@ def meal_info_page(request: WSGIRequest, meal_id: int, error=None):
                                                           'description',
                                                           'full_description').first(),
         'images': Images.objects.filter(meal=meal_id),
-        'overall_rating': sum([meal_rating.rating for meal_rating in ratings]) / len(ratings),
         'ratings': ratings,
         'error': error
     }
+
+    if ratings.first():
+        contex['overall_rating'] = sum([meal_rating.rating for meal_rating in ratings]) / len(ratings)
+    else:
+        contex['overall_rating'] = 0
 
     return render(request,
                   'shop/templates/meal_detail.html',

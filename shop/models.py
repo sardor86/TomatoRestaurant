@@ -25,7 +25,7 @@ class Images(models.Model):
 
 
 class Rating(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     meal = models.ForeignKey(MenuModel, on_delete=models.CASCADE)
     rating = models.PositiveSmallIntegerField(default=5, validators=[MinValueValidator(1), MaxValueValidator(5)])
     comment = models.TextField(blank=True)

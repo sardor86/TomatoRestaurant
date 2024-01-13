@@ -64,3 +64,15 @@ def gallery_page(request: WSGIRequest):
         'base/templates/gallery.html',
         contex
     )
+
+
+def contact_page(request: WSGIRequest):
+    contex: dict = {
+        'title': 'contact'
+    }
+
+    return render(
+        request,
+        'base/templates/contact.html',
+        contex
+    )
